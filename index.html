@@ -96,7 +96,7 @@ h1,h2,h3,p{ margin:0; }
 .hero .lead{ margin-top:24px; font-size:1.1rem; max-width:24em; }
 .hero .lead-ko{ margin-top:10px; font-size:.9rem; color:var(--soft); }
 .hero .cta{ display:flex; flex-wrap:wrap; gap:8px; margin-top:30px; }
-.hero .when{ margin-top:22px; font-family:var(--sans); font-size:.84rem; color:var(--soft); }
+.hero .when{ margin-top:22px; line-height:1.7; font-family:var(--sans); font-size:.84rem; color:var(--soft); }
 .hero-pic{ position:relative; margin:0; }
 .hero-pic img.ph{ width:100%; aspect-ratio:5/4; object-fit:cover; border-radius:2px; }
 .hero-pic .ring{ position:absolute; width:clamp(120px,22vw,210px); right:-14px; top:-40px; background:var(--yel); border-radius:50%; padding:14px; }
@@ -112,6 +112,8 @@ h1,h2,h3,p{ margin:0; }
 .defs p{ margin-top:6px; }
 .defs small{ display:block; margin-top:4px; font-family:var(--sans); font-size:.86rem; color:var(--soft); }
 .mission{ margin-top:48px; font-family:var(--text); font-style:italic; font-size:clamp(1.3rem,2.8vw,1.75rem); line-height:1.5; max-width:34em; }
+.desc-ko{ margin-top:8px; font-family:var(--sans); font-size:.88rem; line-height:1.6; color:var(--soft); max-width:34em; }
+.cap-ko{ display:block; margin-top:2px; font-family:var(--sans); font-style:normal; font-size:.82rem; color:var(--soft); }
 .mission-ko{ margin-top:14px; font-family:var(--sans); font-size:.9rem; color:var(--soft); max-width:40em; }
 
 /* 슈 그리드 */
@@ -151,7 +153,8 @@ h1,h2,h3,p{ margin:0; }
 .info dd .ko, .info dd small{ display:block; font-family:var(--sans); font-size:.86rem; color:var(--soft); margin-top:4px; }
 .hours{ width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
 .hours td{ padding:2px 0; }
-.hours td:first-child{ width:7.5em; }
+.hours td:first-child{ width:10.5em; }
+.hours .ko{ font-size:.82rem; color:var(--soft); margin-left:4px; }
 .visit .links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
 .mapframe{ width:100%; height:340px; border:1px solid var(--line); border-radius:2px; }
 @media (min-width:900px){ .mapframe{ height:100%; min-height:460px; } }
@@ -194,12 +197,12 @@ h1,h2,h3,p{ margin:0; }
         <p class="kicker">Choux pastry desserts · Konkuk Univ., Seoul</p>
         <h1>Choux,<br /><i>made into</i><br />an object.</h1>
         <p class="lead">New flavors, always in progress. Served at their best, in a room made for enjoying them.</p>
-        <p class="lead-ko ko">건대입구역 2번 출구 도보 5분, 슈 디저트 슈브제</p>
+        <p class="lead-ko ko">새로운 맛에 계속 도전하고, 온전히 즐길 수 있는 공간에서 가장 좋은 상태로 내어 드려요.<br />건대입구역 2번 출구 도보 5분, 슈 디저트 슈브제</p>
         <div class="cta">
           <a class="btn fill" href="https://www.instagram.com/chouxbjet_/" target="_blank" rel="noopener">Today on Instagram</a>
           <a class="btn" href="#visit">Find us</a>
         </div>
-        <p class="when">Open Tue – Sun · Closed Mondays</p>
+        <p class="when">Open Tue – Sun · Closed Mondays<br />화~일 영업 · 매주 월요일 휴무</p>
       </div>
       <figure class="hero-pic reveal" style="--d:.1s">
         <img class="ph" src="cx-hero.webp" alt="여러 가지 슈와 밀푀유가 테이블 위에 놓인 모습" width="1400" height="1120" />
@@ -210,7 +213,7 @@ h1,h2,h3,p{ margin:0; }
 
   <section class="sec white name" id="name" aria-labelledby="name-h">
     <div class="wrap">
-      <p class="kicker reveal">The name</p>
+      <p class="kicker reveal">The name · 이름의 뜻</p>
       <h2 id="name-h" class="eq reveal">CHOUX <span>+</span> OBJET <span>=</span> CHOUXBJET</h2>
       <div class="defs reveal">
         <div><b>Choux</b><p>Choux cream dessert.</p><small>슈크림 디저트를 뜻하는 CHOUX</small></div>
@@ -225,7 +228,7 @@ h1,h2,h3,p{ margin:0; }
     <div class="wrap">
       <div class="head reveal">
         <div><p class="kicker">The choux</p><h2 id="choux-h" class="h2">Objets<br />on a plate.</h2></div>
-        <p class="desc">Each choux is built like a small object: crisp shell, cream, and a topping that changes with the season. The line-up moves often, so check Instagram for today’s.</p>
+        <div><p class="desc">Each choux is built like a small object: crisp shell, cream, and a topping that changes with the season. The line-up moves often, so check Instagram for today’s.</p><p class="desc-ko">바삭한 슈 껍질에 크림과 토핑을 올려 작은 오브제처럼 만들어요. 라인업이 자주 바뀌니 그날의 슈는 인스타그램에서 확인해 주세요.</p></div>
       </div>
       <div class="objets">
         <figure class="reveal"><img loading="lazy" src="cx-choux-1.webp" alt="크럼블을 올린 슈가 흰 접시에 놓인 모습" width="800" height="1000" /><figcaption>Objet <span>No.01</span></figcaption></figure>
@@ -242,13 +245,13 @@ h1,h2,h3,p{ margin:0; }
     <div class="wrap">
       <div class="head reveal">
         <div><p class="kicker">Beyond choux</p><h2 id="dess-h" class="h2">More from<br />the kitchen.</h2></div>
-        <p class="desc">Mille-feuille, fruit-heavy cakes, seasonal pies and parfaits sit next to the choux.</p>
+        <div><p class="desc">Mille-feuille, fruit-heavy cakes, seasonal pies and parfaits sit next to the choux.</p><p class="desc-ko">슈 말고도 밀푀유, 과일을 듬뿍 올린 디저트, 시즌 파이와 파르페가 있어요.</p></div>
       </div>
       <div class="dess">
-        <figure class="reveal"><img loading="lazy" src="cx-millefeuille.webp" alt="딸기와 크림을 겹겹이 올린 밀푀유" width="800" height="1000" /><figcaption>Mille-feuille</figcaption></figure>
-        <figure class="reveal"><img loading="lazy" src="cx-strawberry.webp" alt="딸기를 촘촘히 쌓아 올린 디저트" width="800" height="1000" /><figcaption>Strawberry</figcaption></figure>
-        <figure class="reveal"><img loading="lazy" src="cx-pie.webp" alt="반으로 자른 파이 단면" width="800" height="1000" /><figcaption>Pie</figcaption></figure>
-        <figure class="reveal"><img loading="lazy" src="cx-parfait.webp" alt="과자와 과일을 꽂은 파르페" width="800" height="1000" /><figcaption>Parfait</figcaption></figure>
+        <figure class="reveal"><img loading="lazy" src="cx-millefeuille.webp" alt="딸기와 크림을 겹겹이 올린 밀푀유" width="800" height="1000" /><figcaption>Mille-feuille<span class="cap-ko">밀푀유</span></figcaption></figure>
+        <figure class="reveal"><img loading="lazy" src="cx-strawberry.webp" alt="딸기를 촘촘히 쌓아 올린 디저트" width="800" height="1000" /><figcaption>Strawberry<span class="cap-ko">딸기 디저트</span></figcaption></figure>
+        <figure class="reveal"><img loading="lazy" src="cx-pie.webp" alt="반으로 자른 파이 단면" width="800" height="1000" /><figcaption>Pie<span class="cap-ko">파이</span></figcaption></figure>
+        <figure class="reveal"><img loading="lazy" src="cx-parfait.webp" alt="과자와 과일을 꽂은 파르페" width="800" height="1000" /><figcaption>Parfait<span class="cap-ko">파르페</span></figcaption></figure>
       </div>
     </div>
   </section>
@@ -259,7 +262,7 @@ h1,h2,h3,p{ margin:0; }
       <div class="reveal" style="--d:.1s">
         <p class="kicker">To go</p>
         <h2 id="box-h" class="h2">Boxed,<br />to take home.</h2>
-        <p class="desc">Choux travel in a CHOUXBJET box, each in its own place.</p>
+        <p class="desc">Choux travel in a CHOUXBJET box, each in its own place.</p><p class="desc-ko">포장은 슈브제 상자에 하나씩 자리를 잡아 담아 드려요.</p>
       </div>
     </div>
   </section>
@@ -268,7 +271,7 @@ h1,h2,h3,p{ margin:0; }
     <div class="wrap">
       <div class="head reveal">
         <div><p class="kicker">The space</p><h2 id="space-h" class="h2">On the<br />2.5th floor.</h2></div>
-        <p class="desc">A quiet, bright room tucked into an alley near Konkuk Univ. Station. Stay for tea, or take a box with you.</p>
+        <div><p class="desc">A quiet, bright room tucked into an alley near Konkuk Univ. Station. Stay for tea, or take a box with you.</p><p class="desc-ko">건대입구역 근처 골목 안, 2.5층의 조용하고 밝은 공간이에요. 차와 함께 머물러도, 상자에 담아 가져가셔도 좋아요.</p></div>
       </div>
       <div class="space">
         <img class="a reveal" loading="lazy" src="cx-room-1.webp" alt="화분이 걸린 흰 타공판 벽과 조명이 있는 창가 자리" width="1200" height="1200" />
@@ -282,7 +285,7 @@ h1,h2,h3,p{ margin:0; }
     <div class="wrap">
       <div class="head reveal">
         <div><p class="kicker">Visit</p><h2 id="visit-h" class="h2">Find<br />CHOUXBJET.</h2></div>
-        <p class="desc">Hours can change. Updates are posted on Instagram first.</p>
+        <div><p class="desc">Hours can change. Updates are posted on Instagram first.</p><p class="desc-ko">영업시간은 바뀔 수 있어요. 변경 사항은 인스타그램에 먼저 올려요.</p></div>
       </div>
       <div class="visit">
         <div class="reveal">
@@ -291,10 +294,10 @@ h1,h2,h3,p{ margin:0; }
             <div><dt>Getting here</dt><dd>5 min walk from Konkuk Univ. Station, Exit 2<span class="ko">건대입구역 2번 출구에서 도보 5분. 한사발포차와 화기애애 사이 골목 안, 밀주와 같은 건물 2.5층이에요.</span></dd></div>
             <div><dt>Hours</dt><dd>
               <table class="hours"><tbody>
-                <tr><td>Tue – Thu</td><td>12:00 – 21:00</td></tr>
-                <tr><td>Fri – Sat</td><td>12:30 – 22:00</td></tr>
-                <tr><td>Sun</td><td>12:00 – 21:00</td></tr>
-                <tr><td>Mon</td><td>Closed</td></tr>
+                <tr><td>Tue – Thu <span class="ko">화~목</span></td><td>12:00 – 21:00</td></tr>
+                <tr><td>Fri – Sat <span class="ko">금 · 토</span></td><td>12:30 – 22:00</td></tr>
+                <tr><td>Sun <span class="ko">일</span></td><td>12:00 – 21:00</td></tr>
+                <tr><td>Mon <span class="ko">월</span></td><td>Closed <span class="ko">휴무</span></td></tr>
               </tbody></table>
               <small>매주 월요일 정기휴무 · 변경 사항은 인스타그램에서 안내해요.</small>
             </dd></div>
