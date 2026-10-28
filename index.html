@@ -70,6 +70,7 @@ h1,h2,h3,p{ margin:0; }
 .head{ display:grid; gap:16px; }
 @media (min-width:900px){ .head{ grid-template-columns:1fr 1fr; align-items:end; gap:60px; } }
 .head p.desc{ color:var(--soft); max-width:30em; }
+@media (min-width:900px){ .head > :last-child{ justify-self:end; text-align:right; } .head .desc, .head .desc-ko{ margin-left:auto; } }
 
 /* 버튼 */
 .btn{ display:inline-flex; align-items:center; justify-content:center; min-height:50px; padding:0 22px; border:1px solid var(--ink); border-radius:2px; font-family:var(--sans); font-size:.92rem; font-weight:600; letter-spacing:.02em; transition:background .2s ease, color .2s ease; }
