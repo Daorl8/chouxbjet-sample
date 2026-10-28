@@ -32,7 +32,7 @@
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Sunday"], "opens": "12:00", "closes": "21:00" },
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "12:30", "closes": "22:00" }
   ],
-  "sameAs": ["https://www.instagram.com/chouxbjet_/", "https://pf.kakao.com/_Ixoxdxgs"]
+  "sameAs": ["https://www.instagram.com/chouxbjet_/", "https://www.instagram.com/chouxbjet_playground_/", "https://pf.kakao.com/_Ixoxdxgs"]
 }
 </script>
 <style>
@@ -99,8 +99,6 @@ h1,h2,h3,p{ margin:0; }
 .hero .when{ margin-top:22px; line-height:1.7; font-family:var(--sans); font-size:.84rem; color:var(--soft); }
 .hero-pic{ position:relative; margin:0; }
 .hero-pic img.ph{ width:100%; aspect-ratio:5/4; object-fit:cover; border-radius:2px; }
-.hero-pic .ring{ position:absolute; width:clamp(120px,22vw,210px); right:-14px; top:-40px; background:var(--yel); border-radius:50%; padding:14px; }
-@media (min-width:900px){ .hero-pic .ring{ right:auto; left:-80px; top:auto; bottom:-60px; } }
 
 /* 이름 풀이 */
 .name .eq{ font-family:var(--display); font-size:clamp(2rem,6.4vw,4.6rem); line-height:1.1; display:flex; flex-wrap:wrap; align-items:baseline; gap:.1em .35em; }
@@ -131,6 +129,12 @@ h1,h2,h3,p{ margin:0; }
 .dess img{ width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:2px; }
 .dess figcaption{ margin-top:10px; font-family:var(--display); font-size:1.15rem; }
 
+/* 플레이그라운드 (부계정) */
+.pg{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:52px; }
+@media (min-width:900px){ .pg{ grid-template-columns:repeat(6,1fr); gap:14px; } }
+.pg img{ width:100%; aspect-ratio:1; object-fit:cover; border-radius:2px; }
+.pg-btn{ margin-top:28px; }
+
 /* 박스 */
 .boxed .wrap{ display:grid; gap:36px; align-items:center; }
 @media (min-width:900px){ .boxed .wrap{ grid-template-columns:6fr 5fr; gap:72px; } }
@@ -152,15 +156,18 @@ h1,h2,h3,p{ margin:0; }
 .info dd{ margin:0; }
 .info dd .ko, .info dd small{ display:block; font-family:var(--sans); font-size:.86rem; color:var(--soft); margin-top:4px; }
 .hours{ width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
-.hours td{ padding:2px 0; }
-.hours td:first-child{ width:10.5em; }
-.hours .ko{ font-size:.82rem; color:var(--soft); margin-left:4px; }
+.hours th, .hours td{ padding:3px 0; text-align:left; font-weight:400; vertical-align:baseline; white-space:nowrap; }
+.hours th{ padding-right:8px; }
+.hours td.k{ padding-right:8px; font-family:var(--sans); font-size:.82rem; color:var(--soft); }
+@media (min-width:421px){ .hours th{ width:5.8em; } .hours td.k{ width:4.4em; } }
+.hours td.t{ text-align:right; }
+@media (max-width:420px){ .info > div{ grid-template-columns:84px 1fr; gap:10px; } .hours{ font-size:.95rem; } }
 .visit .links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
 .mapframe{ width:100%; height:340px; border:1px solid var(--line); border-radius:2px; }
 @media (min-width:900px){ .mapframe{ height:100%; min-height:460px; } }
 
 /* 푸터 */
-.foot{ background:var(--white); border-top:1px solid var(--line); padding:52px 0 120px; text-align:center; }
+.foot{ background:var(--yel); border-top:1px solid var(--line); padding:52px 0 120px; text-align:center; }
 @media (min-width:900px){ .foot{ padding:60px 0; } }
 .foot img{ width:120px; margin:0 auto 16px; }
 .foot .wm{ font-family:var(--display); font-size:1.6rem; letter-spacing:.06em; }
@@ -185,7 +192,7 @@ h1,h2,h3,p{ margin:0; }
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="CHOUXBJET home"><img src="cx-ring.webp" alt="" width="342" height="293" />CHOUXBJET</a>
-    <nav class="nav" aria-label="Main"><a href="#name">The Name</a><a href="#choux">Choux</a><a href="#desserts">Desserts</a><a href="#space">Space</a><a href="#visit">Visit</a></nav>
+    <nav class="nav" aria-label="Main"><a href="#name">The Name</a><a href="#choux">Choux</a><a href="#desserts">Desserts</a><a href="#playground">Playground</a><a href="#space">Space</a><a href="#visit">Visit</a></nav>
     <a class="head-ig" href="https://www.instagram.com/chouxbjet_/" target="_blank" rel="noopener">Instagram</a>
   </div>
 </header>
@@ -206,7 +213,6 @@ h1,h2,h3,p{ margin:0; }
       </div>
       <figure class="hero-pic reveal" style="--d:.1s">
         <img class="ph" src="cx-hero.webp" alt="여러 가지 슈와 밀푀유가 테이블 위에 놓인 모습" width="1400" height="1120" />
-        <img class="ring" id="ring" src="cx-ring.webp" alt="CHOUXBJET 로고" width="342" height="293" />
       </figure>
     </div>
   </section>
@@ -256,7 +262,25 @@ h1,h2,h3,p{ margin:0; }
     </div>
   </section>
 
-  <section class="sec boxed" aria-labelledby="box-h">
+  <section class="sec" id="playground" aria-labelledby="pg-h">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><p class="kicker">The other account · 부계정</p><h2 id="pg-h" class="h2">Playground.</h2></div>
+        <div><p class="desc">More desserts live on our second account, @chouxbjet_playground_. Take a look before you visit.</p><p class="desc-ko">부계정 @chouxbjet_playground_ 에서 더 많은 디저트를 볼 수 있어요. 방문 전에 둘러보세요.</p></div>
+      </div>
+      <div class="pg">
+        <img class="reveal" loading="lazy" src="cx-pg-1.webp" alt="초콜릿과 코코넛을 묻힌 구움과자" width="800" height="800" />
+        <img class="reveal" loading="lazy" src="cx-pg-2.webp" alt="보라색 고구마 크림과 칩을 올린 구움 디저트" width="800" height="800" />
+        <img class="reveal" loading="lazy" src="cx-pg-3.webp" alt="코코아 가루 위에 놓인 디저트 단면" width="800" height="800" />
+        <img class="reveal" loading="lazy" src="cx-pg-4.webp" alt="겉을 캐러멜라이즈한 디저트 윗면" width="800" height="800" />
+        <img class="reveal" loading="lazy" src="cx-pg-5.webp" alt="딸기를 올린 유리잔 파르페" width="800" height="800" />
+        <img class="reveal" loading="lazy" src="cx-pg-6.webp" alt="코코아 가루를 뿌린 하트 모양 디저트" width="800" height="800" />
+      </div>
+      <a class="btn reveal pg-btn" href="https://www.instagram.com/chouxbjet_playground_/" target="_blank" rel="noopener">@chouxbjet_playground_</a>
+    </div>
+  </section>
+
+  <section class="sec white boxed" aria-labelledby="box-h">
     <div class="wrap">
       <img class="reveal" loading="lazy" src="cx-box.webp" alt="CHOUXBJET 글자가 찍힌 상자에 담긴 슈 세 개" width="1200" height="1200" />
       <div class="reveal" style="--d:.1s">
@@ -267,7 +291,7 @@ h1,h2,h3,p{ margin:0; }
     </div>
   </section>
 
-  <section class="sec white" id="space" aria-labelledby="space-h">
+  <section class="sec" id="space" aria-labelledby="space-h">
     <div class="wrap">
       <div class="head reveal">
         <div><p class="kicker">The space</p><h2 id="space-h" class="h2">On the<br />2.5th floor.</h2></div>
@@ -281,7 +305,7 @@ h1,h2,h3,p{ margin:0; }
     </div>
   </section>
 
-  <section class="sec" id="visit" aria-labelledby="visit-h">
+  <section class="sec white" id="visit" aria-labelledby="visit-h">
     <div class="wrap">
       <div class="head reveal">
         <div><p class="kicker">Visit</p><h2 id="visit-h" class="h2">Find<br />CHOUXBJET.</h2></div>
@@ -294,15 +318,15 @@ h1,h2,h3,p{ margin:0; }
             <div><dt>Getting here</dt><dd>5 min walk from Konkuk Univ. Station, Exit 2<span class="ko">건대입구역 2번 출구에서 도보 5분. 한사발포차와 화기애애 사이 골목 안, 밀주와 같은 건물 2.5층이에요.</span></dd></div>
             <div><dt>Hours</dt><dd>
               <table class="hours"><tbody>
-                <tr><td>Tue – Thu <span class="ko">화~목</span></td><td>12:00 – 21:00</td></tr>
-                <tr><td>Fri – Sat <span class="ko">금 · 토</span></td><td>12:30 – 22:00</td></tr>
-                <tr><td>Sun <span class="ko">일</span></td><td>12:00 – 21:00</td></tr>
-                <tr><td>Mon <span class="ko">월</span></td><td>Closed <span class="ko">휴무</span></td></tr>
+                <tr><th scope="row">Tue – Thu</th><td class="k">화~목</td><td class="t">12:00 – 21:00</td></tr>
+                <tr><th scope="row">Fri – Sat</th><td class="k">금 · 토</td><td class="t">12:30 – 22:00</td></tr>
+                <tr><th scope="row">Sun</th><td class="k">일</td><td class="t">12:00 – 21:00</td></tr>
+                <tr><th scope="row">Mon</th><td class="k">월</td><td class="t">Closed · 휴무</td></tr>
               </tbody></table>
               <small>매주 월요일 정기휴무 · 변경 사항은 인스타그램에서 안내해요.</small>
             </dd></div>
             <div><dt>Call</dt><dd><a href="tel:050714087897">0507-1408-7897</a></dd></div>
-            <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/chouxbjet_/" target="_blank" rel="noopener">@chouxbjet_</a></dd></div>
+            <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/chouxbjet_/" target="_blank" rel="noopener">@chouxbjet_</a><br /><a href="https://www.instagram.com/chouxbjet_playground_/" target="_blank" rel="noopener">@chouxbjet_playground_</a><span class="ko">본계정 · 부계정</span></dd></div>
           </dl>
           <div class="links">
             <a class="btn fill" href="https://www.instagram.com/chouxbjet_/" target="_blank" rel="noopener">Instagram</a>
@@ -333,14 +357,6 @@ h1,h2,h3,p{ margin:0; }
 
 <script>
 (function(){
-  /* 로고 링 천천히 회전 (setInterval) */
-  var ring=document.getElementById('ring'), deg=0;
-  if(ring){
-    setInterval(function(){
-      var r=ring.getBoundingClientRect(); if(r.bottom<0||r.top>window.innerHeight) return;
-      deg=(deg+0.25)%360; ring.style.transform='rotate('+deg+'deg)';
-    },40);
-  }
   /* 리빌 */
   var pending=[].slice.call(document.querySelectorAll('.reveal'));
   pending.forEach(function(el){
