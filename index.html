@@ -96,11 +96,13 @@ h1,h2,h3,p{ margin:0; }
 .hero h1{ font-family:var(--display); font-weight:400; font-size:clamp(2.7rem,8vw,5.4rem); line-height:1; letter-spacing:-.015em; margin-top:16px; }
 .hero h1 i{ font-family:var(--text); font-weight:400; font-style:italic; }
 .hero .lead{ margin-top:24px; font-size:1.1rem; max-width:24em; }
-.hero .lead-ko{ margin-top:10px; font-size:.9rem; color:var(--soft); }
+.hero .lead-ko{ margin-top:12px; font-size:1rem; line-height:1.6; color:var(--ink); }
+.hero .lead-ko small{ display:block; margin-top:6px; font-size:.86rem; color:var(--soft); }
 .hero .cta{ display:flex; flex-wrap:wrap; gap:8px; margin-top:30px; }
 .hero .when{ margin-top:22px; line-height:1.7; font-family:var(--sans); font-size:.84rem; color:var(--soft); }
 .hero-pic{ position:relative; margin:0; }
-.hero-pic img.ph{ width:100%; aspect-ratio:5/4; object-fit:cover; border-radius:2px; }
+.hero-pic img.ph{ width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:2px; }
+@media (min-width:900px){ .hero-pic img.ph{ aspect-ratio:auto; height:min(78vh,760px); } }
 
 /* 이름 풀이 */
 .name .eq{ font-family:var(--display); font-size:clamp(2rem,6.4vw,4.6rem); line-height:1.1; display:flex; flex-wrap:wrap; align-items:baseline; gap:.1em .35em; }
@@ -145,9 +147,11 @@ h1,h2,h3,p{ margin:0; }
 
 /* 공간 */
 .space{ display:grid; gap:14px; margin-top:52px; }
-@media (min-width:900px){ .space{ grid-template-columns:5fr 4fr 3fr; gap:20px; align-items:end; } }
+.space{ grid-template-columns:1fr 1fr; }
+.space .a{ grid-column:1 / -1; }
+@media (min-width:900px){ .space{ grid-template-columns:repeat(3,1fr); gap:20px; } .space .a{ grid-column:auto; } }
 .space img{ width:100%; object-fit:cover; border-radius:2px; }
-.space .a{ aspect-ratio:1; } .space .b{ aspect-ratio:4/5; } .space .c{ aspect-ratio:1; }
+.space .a, .space .b, .space .c{ aspect-ratio:4/5; }
 
 /* 오시는 길 */
 .visit{ display:grid; gap:36px; margin-top:52px; }
@@ -194,7 +198,7 @@ h1,h2,h3,p{ margin:0; }
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="CHOUXBJET home"><img src="cx-ring.webp" alt="" width="342" height="293" />CHOUXBJET</a>
-    <nav class="nav" aria-label="Main"><a href="#name">The Name</a><a href="#choux">Choux</a><a href="#desserts">Desserts</a><a href="#playground">Playground</a><a href="#space">Space</a><a href="#visit">Visit</a></nav>
+    <nav class="nav" aria-label="Main"><a href="#name">The Name</a><a href="#space">Space</a><a href="#choux">Choux</a><a href="#desserts">Desserts</a><a href="#playground">Playground</a><a href="#visit">Visit</a></nav>
     <a class="head-ig" href="https://www.instagram.com/chouxbjet_/" target="_blank" rel="noopener">Instagram</a>
   </div>
 </header>
@@ -205,8 +209,8 @@ h1,h2,h3,p{ margin:0; }
       <div class="reveal">
         <p class="kicker">Choux pastry desserts · Konkuk Univ., Seoul</p>
         <h1>Choux,<br /><i>made into</i><br />an object.</h1>
-        <p class="lead">New flavors, always in progress. Served at their best, in a room made for enjoying them.</p>
-        <p class="lead-ko ko">새로운 맛에 계속 도전하고, 온전히 즐길 수 있는 공간에서 가장 좋은 상태로 내어 드려요.<br />건대입구역 2번 출구 도보 5분, 슈 디저트 슈브제</p>
+        <p class="lead">A warm little room for a pause in your day, and something sweet.</p>
+        <p class="lead-ko ko">따뜻하고 아늑한 공간에서, 일상 속 잠시 쉬어 가는 달콤한 시간.<small>건대입구역 2번 출구 도보 5분, 슈 디저트 슈브제</small></p>
         <div class="cta">
           <a class="btn fill" href="https://www.instagram.com/chouxbjet_/" target="_blank" rel="noopener">Today on Instagram</a>
           <a class="btn" href="#visit">Find us</a>
@@ -214,7 +218,7 @@ h1,h2,h3,p{ margin:0; }
         <p class="when">Open Tue – Sun · Closed Mondays<br />화~일 영업 · 매주 월요일 휴무</p>
       </div>
       <figure class="hero-pic reveal" style="--d:.1s">
-        <img class="ph" src="cx-hero.webp" alt="여러 가지 슈와 밀푀유가 테이블 위에 놓인 모습" width="1400" height="1120" />
+        <img class="ph" src="cx-hero.webp" alt="햇살이 드는 테이블 위 피스타치오 크림 슈와 유리 찻잔의 홍차" width="1012" height="1265" />
       </figure>
     </div>
   </section>
@@ -232,7 +236,21 @@ h1,h2,h3,p{ margin:0; }
     </div>
   </section>
 
-  <section class="sec" id="choux" aria-labelledby="choux-h">
+  <section class="sec" id="space" aria-labelledby="space-h">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><p class="kicker">The space</p><h2 id="space-h" class="h2">A pause<br />in your day.</h2></div>
+        <div><p class="desc">A quiet, bright room on the 2.5th floor. Stay for tea, or take a box with you.</p><p class="desc-ko">건대입구역 근처 골목 안, 2.5층의 조용하고 밝은 공간입니다.</p></div>
+      </div>
+      <div class="space">
+        <img class="a reveal" loading="lazy" src="cx-room-1.webp" alt="창으로 햇빛이 드는 테이블과 의자가 놓인 홀" width="900" height="1125" />
+        <img class="b reveal" loading="lazy" src="cx-room-2.webp" alt="매장 한쪽의 레코드 플레이어" width="900" height="1125" />
+        <img class="c reveal" loading="lazy" src="cx-tea.webp" alt="햇살 아래 유리 찻주전자와 찻잔에 담긴 홍차" width="900" height="1125" />
+      </div>
+    </div>
+  </section>
+
+  <section class="sec white" id="choux" aria-labelledby="choux-h">
     <div class="wrap">
       <div class="head reveal">
         <div><p class="kicker">The choux</p><h2 id="choux-h" class="h2">Objets<br />on a plate.</h2></div>
@@ -249,7 +267,7 @@ h1,h2,h3,p{ margin:0; }
     </div>
   </section>
 
-  <section class="sec white" id="desserts" aria-labelledby="dess-h">
+  <section class="sec" id="desserts" aria-labelledby="dess-h">
     <div class="wrap">
       <div class="head reveal">
         <div><p class="kicker">Beyond choux</p><h2 id="dess-h" class="h2">More from<br />the kitchen.</h2></div>
@@ -264,7 +282,7 @@ h1,h2,h3,p{ margin:0; }
     </div>
   </section>
 
-  <section class="sec" id="playground" aria-labelledby="pg-h">
+  <section class="sec white" id="playground" aria-labelledby="pg-h">
     <div class="wrap">
       <div class="head reveal">
         <div><p class="kicker">The other account · <span class="up">부계정</span></p><h2 id="pg-h" class="h2">Playground.</h2></div>
@@ -282,27 +300,13 @@ h1,h2,h3,p{ margin:0; }
     </div>
   </section>
 
-  <section class="sec white boxed" aria-labelledby="box-h">
+  <section class="sec boxed" aria-labelledby="box-h">
     <div class="wrap">
       <img class="reveal" loading="lazy" src="cx-box.webp" alt="CHOUXBJET 글자가 찍힌 상자에 담긴 슈 세 개" width="1200" height="1200" />
       <div class="reveal" style="--d:.1s">
         <p class="kicker">To go</p>
         <h2 id="box-h" class="h2">Boxed,<br />to take home.</h2>
         <p class="desc">Choux travel in a CHOUXBJET box, each in its own place.</p><p class="desc-ko">포장은 슈브제 상자에 하나씩 자리를 잡아 담아 드려요.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="space" aria-labelledby="space-h">
-    <div class="wrap">
-      <div class="head reveal">
-        <div><p class="kicker">The space</p><h2 id="space-h" class="h2">On the<br />2.5th floor.</h2></div>
-        <div><p class="desc">A quiet, bright room tucked into an alley near Konkuk Univ. Station. Stay for tea, or take a box with you.</p><p class="desc-ko">건대입구역 근처 골목 안, 2.5층의 조용하고 밝은 공간입니다.</p></div>
-      </div>
-      <div class="space">
-        <img class="a reveal" loading="lazy" src="cx-room-1.webp" alt="화분이 걸린 흰 타공판 벽과 조명이 있는 창가 자리" width="1200" height="1200" />
-        <img class="b reveal" loading="lazy" src="cx-room-2.webp" alt="창 너머로 보이는 테이블과 사진 액자가 걸린 홀" width="1000" height="1250" />
-        <img class="c reveal" loading="lazy" src="cx-tea.webp" alt="유리 찻주전자와 찻잔 옆에 놓인 슈" width="900" height="900" />
       </div>
     </div>
   </section>
